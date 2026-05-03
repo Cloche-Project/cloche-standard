@@ -42,10 +42,10 @@ jobs:
         recipe:
           - standard.yml
           - standard-gnome.yml
-          - deck.yml
-          - deck-gnome.yml
-          - cloche-xe.yml
-          - cloche-xe-gnome.yml
+          #- deck.yml
+          #- deck-gnome.yml
+          #- cloche-xe.yml
+          #- cloche-xe-gnome.yml
     steps:
       # the build is fully handled by the reusable github action
       - name: Build Custom Image
