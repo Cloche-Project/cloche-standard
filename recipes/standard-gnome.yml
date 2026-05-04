@@ -77,6 +77,8 @@ modules:
           - org.gnome.Characters
           - org.gnome.Evince
           - com.github.tchx84.Flatseal
+          - io.podman_desktop.PodmanDesktop
+          - net.nokyan.Resources
 
   - type: script
     scripts:

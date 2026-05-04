@@ -79,7 +79,9 @@ modules:
           - io.bassi.Amberol
           - io.github.shonebinu.Brief
           - org.localsend.localsend_app
-
+          - io.podman_desktop.PodmanDesktop
+          - net.nokyan.Resources
+          
   - type: script
     scripts:
       #- install-common-packages.sh

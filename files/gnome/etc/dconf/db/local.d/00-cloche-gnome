@@ -97,7 +97,7 @@ switch-to-workspace-right=['<Super>KP_Next', '<Super><Alt>Right', '<Control><Alt
 switch-to-workspace-up=['<Control><Alt>Up']
 
 [org/gnome/desktop/wm/preferences]
-button-layout='appmenu:minimize,maximize,close'
+button-layout=':minimize,maximize,close'
 num-workspaces=4
 
 [org/gnome/evolution-data-server]
