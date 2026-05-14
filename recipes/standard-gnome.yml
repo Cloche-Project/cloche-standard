@@ -6,7 +6,7 @@ image-version: 44 #latest
 modules:
   - type: os-release
     properties:
-      ID: cloche
+      #ID: cloche
       NAME: Cloche
       PRETTY_NAME: Cloche 44 (Envy)
       LOGO: system-logo-white
