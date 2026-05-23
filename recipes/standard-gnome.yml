@@ -1,6 +1,6 @@
 name: cloche-standard-gnome
 description: Standard GNOME
-base-image: ghcr.io/ublue-os/silverblue-main
+base-image: ghcr.io/cloche-project/cloche
 image-version: 44 #latest
 
 modules:
@@ -14,6 +14,10 @@ modules:
       BUG_REPORT_URL: https://github.com/augustofmarques/gnx/issues
       SUPPORT_URL: https://github.com/augustofmarques/gnx
       DEFAULT_HOSTNAME: cloche
+
+  - type: containerfile
+    snippets:
+      - RUN dnf install -y @gnome-desktop --exclude=gnome-software --exclude=gnome-boxes && dnf clean all
 
   - type: files
     files:

@@ -1,5 +1,5 @@
-name: cloche-standard
-description: Standard
+name: cloche-standard-plasma
+description: Standard Plasma
 base-image: ghcr.io/ublue-os/kinoite-main
 image-version: 44 #latest
 
