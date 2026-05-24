@@ -7,4 +7,5 @@ rpm-ostree install -y \
     distrobox \
     zsh \
     btop \
-    tailscale
+    tailscale \
+    bazaar
