@@ -16,7 +16,7 @@ modules:
 
   - type: containerfile
     snippets:
-      - RUN dnf install -y @kde-desktop --exclude=gnome-software --exclude=plasma-discover && dnf clean all
+      - RUN dnf install -y @kde-desktop --exclude=plasma-discover && dnf clean all
 
   - type: files
     files:
