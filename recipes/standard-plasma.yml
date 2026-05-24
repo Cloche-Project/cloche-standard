@@ -1,6 +1,6 @@
 name: cloche-standard-plasma
 description: Standard Plasma
-base-image: ghcr.io/ublue-os/kinoite-main
+base-image: ghcr.io/cloche-project/cloche
 image-version: 44 #latest
 
 modules:
@@ -13,6 +13,10 @@ modules:
       BUG_REPORT_URL: https://github.com/augustofmarques/gnx/issues
       SUPPORT_URL: https://github.com/augustofmarques/gnx
       DEFAULT_HOSTNAME: cloche
+
+  - type: containerfile
+    snippets:
+      - RUN dnf install -y @kde-desktop --exclude=gnome-software --exclude=plasma-discover && dnf clean all
 
   - type: files
     files:
