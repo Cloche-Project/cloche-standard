@@ -16,7 +16,9 @@ modules:
 
   - type: containerfile
     snippets:
-    - RUN dnf install -y @kde-desktop --exclude=plasma-discover --exclude=plasma-discover-notifier && dnf clean all
+    - RUN dnf install -y @kde-desktop --exclude=plasma-discover --exclude=plasma-discover-notifier && dnf clean all && \
+        dnf remove -y plasma-lookandfeel-fedora system-backgrounds-kde && \
+        dnf clean all
 
   - type: files
     files:
