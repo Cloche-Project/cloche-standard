@@ -14,11 +14,14 @@ modules:
       SUPPORT_URL: https://github.com/augustofmarques/gnx
       DEFAULT_HOSTNAME: cloche
 
+#  - type: containerfile
+#    snippets:
+#    - RUN dnf install -y @kde-desktop --exclude=plasma-discover --exclude=plasma-discover-notifier && dnf clean all
+
   - type: containerfile
     snippets:
-    - RUN dnf install -y @kde-desktop --exclude=plasma-discover --exclude=plasma-discover-notifier && dnf clean all && \
-        dnf remove -y plasma-lookandfeel-fedora system-backgrounds-kde && \
-        dnf clean all
+      # ... seus snippets anteriores ...
+      - RUN dnf install -y @kde-desktop --exclude=plasma-discover --exclude=plasma-discover-notifier && dnf clean all && dnf remove -y plasma-lookandfeel-fedora system-backgrounds-kde && dnf clean all
 
   - type: files
     files:
