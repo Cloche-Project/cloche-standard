@@ -59,6 +59,7 @@ modules:
     system:
       enabled:
         - cockpit.socket
+        - plasma-login.service
       masked:
         # Masks some services in order to get faster boot
         # times on desktop based images.

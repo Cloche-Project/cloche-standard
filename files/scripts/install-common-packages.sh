@@ -8,4 +8,5 @@ rpm-ostree install -y \
     zsh \
     btop \
     tailscale \
-    bazaar
+    bazaar \
+    cloche-common
