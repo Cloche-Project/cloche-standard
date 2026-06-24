@@ -17,6 +17,8 @@ modules:
   - type: containerfile
     snippets:
     - RUN dnf install -y @kde-desktop --exclude=plasma-discover --exclude=plasma-discover-notifier && dnf clean all
+    - RUN systemd-sysusers /usr/lib/sysusers.d/plasmalogin.conf && systemd-sysusers /usr/lib/sysusers.d/plasma-setup-sysuser.conf
+
 
   - type: files
     files:
