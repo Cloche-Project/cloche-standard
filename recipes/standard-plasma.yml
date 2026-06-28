@@ -33,6 +33,7 @@ modules:
     scripts:
       - install-common-packages.sh
       - install-standard-packages.sh
+      - install-plasma-packages.sh
 
 
   - type: dnf
