@@ -6,4 +6,5 @@ rpm-ostree install -y \
     gnome-shell-extension-dash-to-panel \
     gnome-shell-extension-blur-my-shell \
     gnome-shell-extension-caffeine \
-    cloche-gnome-defaults
+    cloche-gnome-defaults \
+    cloche-wallpapers-1
