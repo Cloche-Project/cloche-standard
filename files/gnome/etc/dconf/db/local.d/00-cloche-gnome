@@ -123,7 +123,7 @@ name='Open terminal'
 
 [org/gnome/shell]
 disabled-extensions=['window-list@gnome-shell-extensions.gcampax.github.com', 'argos@pew.worldwidemann.com', 'background-logo@fedorahosted.org', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com']
-enabled-extensions=['dash-to-panel@jderose9.github.com', 'caffeine@patapon.info', 'launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'vertical-workspaces@G-dH.github.com', 'dash-to-dock@micxgx.gmail.com', 'blur-my-shell@aunetx']
+enabled-extensions=['dash-to-panel@jderose9.github.com', 'caffeine@patapon.info', 'launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'vertical-workspaces@G-dH.github.com', 'dash-to-dock@micxgx.gmail.com', 'blur-my-shell@aunetx', 'user-theme@gnome-shell-extensions.gcampax.github.com']
 last-selected-power-profile='power-saver'
 welcome-dialog-last-shown-version='49.4'
 
@@ -239,6 +239,9 @@ trans-use-custom-bg=false
 trans-use-custom-opacity=false
 trans-use-dynamic-opacity=false
 window-preview-title-position='TOP'
+
+[org/gnome/shell/extensions/user-theme]
+name='CustomTransparent'
 
 [org/gnome/shell/extensions/vertical-workspaces]
 aaa-loading-profile=false
