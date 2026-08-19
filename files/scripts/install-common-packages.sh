@@ -9,4 +9,5 @@ rpm-ostree install -y \
     btop \
     tailscale \
     bazaar \
-    cloche-common
+    cloche-common \
+    ghostty

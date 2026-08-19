@@ -27,6 +27,8 @@ modules:
       - source: kde
         destination: /
 
+  - type: justfiles
+
 #  - type: rpm-ostree
 #    install:
   - type: script

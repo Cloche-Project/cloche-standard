@@ -28,6 +28,8 @@ modules:
       - source: gnome
         destination: /
 
+  - type: justfiles
+
 #  - type: rpm-ostree
 #    install:
   - type: script

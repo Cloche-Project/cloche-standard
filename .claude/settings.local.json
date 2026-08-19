@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//var/home/augusto/.local/share/themes/CustomTransparent/**)",
+      "Bash(xargs -I{} sh -c 'echo \"=== {} ===\"; wc -l \"{}\"')",
+      "Bash(mkdir -p /var/home/augusto/Documents/GitHub/cloche-standard/files/gnome/usr/share/themes/CustomTransparent/gnome-shell *)"
+    ],
+    "additionalDirectories": [
+      "/var/home/augusto/.local/share/themes/CustomTransparent/gnome-shell"
+    ]
+  }
+}
