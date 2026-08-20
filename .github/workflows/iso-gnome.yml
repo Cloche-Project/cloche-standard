@@ -14,7 +14,7 @@ jobs:
     
     steps:
       - name: Maximize build space
-        uses: ublue-os/remove-unwanted-software@v9
+        uses: ublue-os/remove-unwanted-software@cc0becac701cf642c8f0a6613bbdaf5dc36b259e # v9
 
       - name: Define image tag
         id: define_tag
@@ -28,7 +28,7 @@ jobs:
 
       - name: Build ISO
         id: build
-        uses: jasonn3/build-container-installer@main
+        uses: jasonn3/build-container-installer@bed71f841c250650a70f1ed8315ba92da1591ba6 # main, no version tags published
         with:
           arch: x86_64
           image_repo: ghcr.io/augustofmarques
@@ -42,7 +42,7 @@ jobs:
 
       - name: Upload ISO as artifact
         id: upload
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: ${{ steps.build.outputs.iso_name }}
           path: |
