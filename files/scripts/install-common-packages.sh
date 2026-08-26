@@ -10,4 +10,5 @@ rpm-ostree install -y \
     tailscale \
     bazaar \
     cloche-common \
-    ghostty
+    ghostty \
+    newt
