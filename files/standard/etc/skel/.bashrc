@@ -25,3 +25,6 @@ fi
 unset rc
 alias fastfetch='/usr/bin/fastfetch --config ~/.config/fastfetch/config.jsonc'
 alias fastfetch='/usr/bin/fastfetch --config /etc/fastfetch/config.jsonc'
+
+# Starship
+eval "$(starship init bash)"

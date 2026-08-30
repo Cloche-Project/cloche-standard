@@ -12,3 +12,5 @@ rpm-ostree install -y \
     cloche-common \
     ghostty \
     newt
+
+curl -sS https://starship.rs/install.sh | sh -s -- --yes

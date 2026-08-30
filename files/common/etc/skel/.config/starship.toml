@@ -1,0 +1,161 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+format = """
+[](blue)\
+$username\
+[](bg:surface fg:blue)\
+$directory\
+[](bg:surface2 fg:surface)\
+$git_branch\
+$git_status\
+[](fg:surface2 bg:surface0)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$bun\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:surface0 bg:surface1)\
+$conda\
+[](fg:surface1 bg:surface2)\
+$time\
+[ ](fg:surface2)\
+$cmd_duration\
+$line_break\
+$character"""
+
+palette = 'cloche'
+
+[os]
+disabled = true
+
+[line_break]
+disabled = true
+
+[username]
+show_always = true
+style_user = "bg:blue fg:white"
+style_root = "bg:red fg:white"
+format = '[ $user ]($style)'
+
+[directory]
+style = "bg:surface fg:text"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:surface2"
+format = '[[ $symbol $branch ](fg:text bg:surface2)]($style)'
+
+[git_status]
+style = "bg:surface2"
+format = '[[($all_status$ahead_behind )](fg:text bg:surface2)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:text bg:surface0)]($style)'
+
+[bun]
+symbol = ""
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:text bg:surface0)]($style)'
+
+[c]
+symbol = " "
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:text bg:surface0)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:text bg:surface0)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:text bg:surface0)]($style)'
+
+[php]
+symbol = ""
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:text bg:surface0)]($style)'
+
+[java]
+symbol = " "
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:text bg:surface0)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:text bg:surface0)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:surface0"
+format = '[[ $symbol( $version) ](fg:text bg:surface0)]($style)'
+
+[python]
+symbol = ""
+style = "bg:surface0"
+format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:text bg:surface0)]($style)'
+
+[conda]
+symbol = "  "
+style = "fg:text bg:surface1"
+format = '[$symbol$environment ]($style)'
+ignore_base = false
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:surface2"
+format = '[[  $time ](fg:text bg:surface2)]($style)'
+
+[cmd_duration]
+show_milliseconds = true
+format = " in $duration "
+style = "bg:surface2"
+disabled = false
+show_notifications = true
+min_time_to_notify = 45000
+
+[character]
+disabled = false
+success_symbol = '[❯](bold fg:blue)'
+error_symbol = '[❯](bold fg:red)'
+vimcmd_symbol = '[❮](bold fg:blue)'
+vimcmd_replace_one_symbol = '[❮](bold fg:blue)'
+vimcmd_replace_symbol = '[❮](bold fg:blue)'
+vimcmd_visual_symbol = '[❮](bold fg:blue)'
+
+[palettes.cloche]
+blue = "#0654da"
+blue_bright = "#7aa7d9"
+
+white = "#e6e9ef"
+text = "#d8dee9"
+gray = "#9aa4b2"
+
+surface = "#1b2028"
+surface0 = "#252a33"
+surface1 = "#303640"
+surface2 = "#3b4350"
+
+black = "#111318"
+red = "#d85c66"
