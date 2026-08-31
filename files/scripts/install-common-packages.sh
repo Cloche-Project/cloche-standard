@@ -13,4 +13,4 @@ rpm-ostree install -y \
     ghostty \
     newt
 
-curl -sS https://starship.rs/install.sh | sh -s -- --yes
+curl -sS https://starship.rs/install.sh | sh -s -- --yes --bin-dir /usr/bin
