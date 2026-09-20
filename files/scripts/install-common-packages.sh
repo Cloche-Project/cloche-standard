@@ -11,6 +11,8 @@ rpm-ostree install -y \
     bazaar \
     cloche-common \
     ghostty \
-    newt
+    newt \
+    spice-vdagent \
+    qemu-guest-agent
 
 curl -sS https://starship.rs/install.sh | sh -s -- --yes --bin-dir /usr/bin
