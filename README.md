@@ -1,3 +1,5 @@
+*[Leia em Português](README.pt-BR.md)*
+
 <p align="center">
   <picture>
     <img src="cloche-logo/watermark.png" alt="Cloche OS Logo" height="80" />
@@ -70,17 +72,17 @@ rpm-ostree rebase ostree-unverified-registry:ghcr.io/cloche-project/cloche-stand
 # Or for the Plasma variant
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/cloche-project/cloche-standard-plasma:latest
 ```
-## Apply the desktop layers by rebooting your system:
+
+### Apply the desktop layers by rebooting your system:
 
 ```bash
 systemctl reboot
-
-Post-Installation Recommended Steps
-
-    Verify Layers: Run rpm-ostree status to ensure the base and local overrides match expectations.
-
-    Setup Flatpaks: Flatpak remotes are configured at system level; user-space apps can be added without root privileges via Software Center or CLI.
 ```
+
+### Post-Installation Recommended Steps
+
+* **Verify Layers:** Run `rpm-ostree status` to ensure the base and local overrides match expectations.
+* **Setup Flatpaks:** Flatpak remotes are configured at system level; user-space apps can be added without root privileges via Software Center or CLI.
 
 ## Verification & Security
 
@@ -93,8 +95,6 @@ cosign verify --key cosign.pub ghcr.io/cloche-project/cloche-standard-gnome:late
 
 ## License & Acknowledgments
 
-    Licensed under Apache 2.0
-
-    Inherits core security from the cloche-project/cloche base layer
-
-    Powered by the BlueBuild framework and Universal Blue project engines
+* Licensed under Apache 2.0
+* Inherits core security from the `cloche-project/cloche` base layer
+* Powered by the BlueBuild framework and Universal Blue project engines

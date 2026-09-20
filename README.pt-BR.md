@@ -1,104 +1,100 @@
 *[Read in English](README.md)*
 
-# Cloche OS
+<p align="center">
+  <picture>
+    <img src="cloche-logo/watermark.png" alt="Cloche OS Logo" height="80" />
+  </picture>
+</p>
 
-**Imagem de desktop pessoal imutável baseada no Fedora Atomic.**
+<p align="center">
+    <strong>Workstation Padrão em RPM-Ostree</strong>
+</p>
 
-O Cloche é uma imagem OCI customizada construída usando o framework BlueBuild. Ele foi projetado para ser um "daily driver" confiável que segue um modelo de configuração declarativa, permitindo um ambiente de trabalho estável, reprodutível e com deploys rápidos.
+<p align="center">
+  <strong>Cloche Standard</strong> é uma série de imagens de desktop imutáveis e container-native, projetadas como uma workstation sólida para desenvolvedores e sysadmins.
+</p>
 
-## Arquitetura Técnica
+<p align="center">
+  <a href="https://github.com/cloche-project/cloche-standard/actions/workflows/build.yml">
+    <img src="https://github.com/cloche-project/cloche-standard/actions/workflows/build.yml/badge.svg" alt="Build Status" />
+  </a>
+  <a href="https://ghcr.io/cloche-project/cloche-standard-gnome">
+    <img src="https://img.shields.io/badge/registry-GHCR-blue?logo=github" alt="GHCR Registry" />
+  </a>
+  <img src="https://img.shields.io/github/license/cloche-project/cloche-standard" alt="License" />
+</p>
 
-  - **Base:** Fedora / Universal Blue (ublue-os).
+> [!NOTE]
+> **O Cloche Standard herda diretamente da imagem Cloche Headless Base.** Ele aplica os ambientes gráficos, drivers de hardware e os essenciais de desktop sobre a base segura já existente.
 
-  - **Atômico/Imutável:** rpm-ostree para atualizações atômicas e rollbacks.
+---
 
-  - **Sistema de Build:** GitHub Actions para automação de camadas de imagem.
+## Variantes Disponíveis
 
-  - **Configuração:** Gerenciado via receitas YAML, definindo pacotes do sistema, flatpaks e scripts customizados.
+| Nome da Imagem | Ambiente Desktop | Caso de Uso |
+|------------|---------------------|-----------------|
+| `cloche-standard-gnome` | GNOME (nativo Wayland) | Workstation minimalista para desenvolvimento, pronta para extensões |
+| `cloche-standard-plasma` | KDE Plasma | Ambiente altamente customizável e rico em recursos para power users |
 
-## Principais Recursos
+---
 
-  - **Setup Declarativo:** Todo o estado do sistema é definido neste repositório.
+## Arquitetura do Desktop
 
-  - **Integração CI/CD:** Builds automatizados disparados por alterações na configuração.
+| Componente | Detalhes |
+|-----------|---------|
+| **Camada Base** | Cloche Headless Base (`ghcr.io/cloche-project/cloche:latest`) |
+| **Servidor Gráfico** | Wayland por padrão (com fallback para XWayland) |
+| **Stack de Áudio** | PipeWire (motor de áudio de baixa latência pré-configurado) |
+| **Entrega de Apps** | Flatpak (Flathub habilitado no nível de usuário) + Distrobox |
+| **Suporte a Hardware** | Drivers gráficos open-source embutidos (Mesa/AMDGPU pronto) |
 
-  - **Gerenciamento Híbrido de Pacotes:** Camadas centrais do sistema via rpm-ostree e sandboxing de aplicações via Flatpak.
+---
 
-  - **Padrões Otimizados:** Ferramentas pré-configuradas para gerenciamento de infraestrutura e desenvolvimento.
+## Principais Recursos do Desktop
 
-  - **Batteries included:** Como é o padrão das imagens ublue.
+* **Separação em Camadas:** O sistema base permanece completamente imutável e limpo. Todas as aplicações de desktop rodam em sandbox via Flatpak, garantindo que atualizações do SO nunca quebrem a configuração do espaço de usuário.
+* **Toolkit de Desktop:** Integra os utilitários centrais do headless (`just`, `distrobox`, `tmux`, `tailscale`) com ferramentas gráficas de gerenciamento.
+* **Otimizações de Fonte & UI:** Pré-configurado com tipografia geométrica limpa e temas de sistema voltados a longas sessões de desenvolvimento.
+* **Workstation Zero-Drift:** Os pacotes do sistema são declarados nas receitas deste repositório. Chega de rodar `dnf install` manualmente em máquinas novas.
 
-  - **Workflows Conteinerizados:** Inclui Distrobox e Docker out-of-the-box.
+---
 
-## Imagens Disponíveis
+## Implantação & Instalação
 
-Este projeto mantém múltiplas variações de imagem para suportar diferentes configurações de hardware e ambientes de desktop (KDE Plasma e GNOME).
+### Rebase Remoto
 
-| Nome da Imagem | Ambiente Desktop | Alvo / Caso de Uso |
-| :--- | :--- | :--- |
-| **cloche-standard** | KDE Plasma | Workstation de uso geral |
-| **cloche-standard-gnome** | GNOME | Workstation de uso geral |
-| **cloche-xe** | KDE Plasma | Workstation / Foco em Performance e Gaming |
-| **cloche-xe-gnome** | GNOME | Workstation / Foco em Performance e Gaming |
-| **cloche-xe-deck** | KDE Plasma | Otimizado para Steam Deck |
-| **cloche-xe-deck-gnome** | GNOME | Otimizado para Steam Deck |
+Para migrar uma workstation Fedora Atomic existente para o Cloche Standard, escolha sua variante preferida e execute:
 
-## Modelo de Branch
+```bash
+# Exemplo: rebase para a variante GNOME
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/cloche-project/cloche-standard-gnome:latest
 
-- **main/latest**: Builds estáveis, testados e prontos para uso diário.
+# Ou para a variante Plasma
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/cloche-project/cloche-standard-plasma:latest
+```
 
-- **beta/testing**: Branch de testes para novas versões upstream, recursos experimentais e receitas em teste.
+### Aplique as camadas de desktop reiniciando o sistema:
 
-## Instalação
-
-### CUIDADO!
-
-***Esta é uma configuração pessoal. Faça o rebase por sua conta e risco.***
-
-Para fazer o rebase de uma instalação Fedora Atomic existente para o Cloche, substitua `<IMAGE_NAME>` pela sua imagem preferida da tabela acima, e `<TAG>` por `latest` (main) ou `testing` (beta).
-
-Rebase para o registry não verificado:
-
-~~~bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/augustofmarques/<IMAGE_NAME>:<TAG>
-~~~
-
-Exemplo para a imagem KDE Standard na branch estável:
-
-~~~bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/augustofmarques/cloche-standard:latest
-~~~
-
-Reinicie para aplicar as alterações:
-~~~bash
+```bash
 systemctl reboot
-~~~ 
+```
 
-**Opcional:** Verificar e fazer rebase para a imagem assinada:
-Uma vez que a chave pública esteja configurada, você pode mudar para a imagem assinada para maior segurança.
+### Passos Recomendados Pós-Instalação
 
-## Geração Local de ISO
+* **Verificar Camadas:** Rode `rpm-ostree status` para garantir que a base e os overrides locais estão de acordo com o esperado.
+* **Configurar Flatpaks:** Os remotes do Flatpak já vêm configurados no nível do sistema; apps de usuário podem ser adicionados sem privilégios de root via Central de Software ou CLI.
 
-Você também pode gerar uma ISO bootável localmente usando a CLI do `bluebuild`. 
+## Verificação & Segurança
 
-Execute o comando a seguir, substituindo o nome de saída e a imagem/tag alvo:
+Todo build de imagem de desktop é assinado via Sigstore Cosign contra a chave pública de verificação do repositório.
 
-~~~bash
-sudo bluebuild generate-iso --iso-name <OUTPUT_NAME>.iso image ghcr.io/augustofmarques/<IMAGE_NAME>:<TAG>
-~~~
+```bash
+# Verificar a camada da variante de desktop específica
+cosign verify --key cosign.pub ghcr.io/cloche-project/cloche-standard-gnome:latest
+```
 
-**Exemplo:** Gerando uma ISO para a imagem GNOME Steam Deck na branch beta:
-~~~bash
-sudo bluebuild generate-iso --iso-name cloche-deck-gnome.iso image ghcr.io/augustofmarques/cloche-xe-deck-gnome:testing
-~~~
+## Licença & Agradecimentos
 
-> ***Nota:*** Verifique a seção de pacotes (packages) deste repositório para encontrar os nomes e tags das imagens para cada branch (como a beta).<br>
-Se os comandos de build de imagens ou ISOs forem executados sem a definição de tag, o comando utilizará por padrão a imagem mais recente (latest) da branch main.
-
-## Objetivo do Projeto
-
-O propósito do Cloche é eliminar as etapas manuais de pós-instalação. Ao tratar a estação de trabalho como um ativo imutável, garanto que meu ambiente seja consistente em diferentes máquinas e fácil de recuperar rapidamente em caso de falha de hardware.
-
-## Aviso
-
-Este é um projeto pessoal desenvolvido para fins educacionais e de hobby. Embora eu o utilize como meu sistema principal diário, ele é fornecido "como está" (as-is), sem quaisquer garantias. Use por sua conta e risco.
+* Licenciado sob Apache 2.0
+* Herda a segurança central da camada base `cloche-project/cloche`
+* Powered by o framework BlueBuild e os engines do projeto Universal Blue
