@@ -12,8 +12,8 @@ rm -f /usr/share/backgrounds/default-dark.png
 
 # set Cloche global symlinks for Wallpapers
 echo "Setting symlinks for Cloche wallpapers"
-ln -sf /usr/share/backgrounds/towers-light.png /usr/share/backgrounds/default.png
-ln -sf /usr/share/backgrounds/towers-dark.png /usr/share/backgrounds/default-dark.png
+ln -sf /usr/share/wallpapers/Cloche-Default/contents/images/3840x2025.webp /usr/share/backgrounds/default.png
+ln -sf /usr/share/wallpapers/Cloche-Default/contents/images/3840x2025-dark.webp /usr/share/backgrounds/default-dark.png
 
 # replace Fedora's GDM and system Logos with Plymouth Watermark
 echo "Replacing Upstream GDM and System Logos..."

@@ -10,8 +10,8 @@ rm -f /usr/share/backgrounds/default.jxl
 rm -f /usr/share/backgrounds/default-dark.jxl
 
 echo "Setting Cloche logo symlinks"
-ln -sf /usr/share/backgrounds/towers-light.png /usr/share/backgrounds/default.png
-ln -sf /usr/share/backgrounds/towers-dark.png /usr/share/backgrounds/default-dark.png
+ln -sf /usr/share/wallpapers/Cloche-Default/contents/images/3840x2025.webp /usr/share/backgrounds/default.png
+ln -sf /usr/share/wallpapers/Cloche-Default/contents/images/3840x2025-dark.webp /usr/share/backgrounds/default-dark.png
 
 # Fastfetch patch for distrobox
 if [ -f /etc/skel/.bashrc ]; then
