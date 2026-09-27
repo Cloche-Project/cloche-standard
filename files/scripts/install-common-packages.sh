@@ -13,6 +13,7 @@ rpm-ostree install -y \
     ghostty \
     newt \
     spice-vdagent \
-    qemu-guest-agent
+    qemu-guest-agent \
+    uxplay
 
 curl -sS https://starship.rs/install.sh | sh -s -- --yes --bin-dir /usr/bin
