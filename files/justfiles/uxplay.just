@@ -3,6 +3,8 @@
 # service, so this wires it up under the logged-in user's session instead.
 [group('cloche')]
 enable-uxplay:
+    #!/usr/bin/env bash
+    set -euo pipefail
     mkdir -p ~/.config/systemd/user
     cat > ~/.config/systemd/user/uxplay.service <<'EOF'
     [Unit]
