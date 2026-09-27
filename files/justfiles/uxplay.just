@@ -12,7 +12,7 @@ enable-uxplay:
 
     [Service]
     Type=simple
-    ExecStart=uxplay
+    ExecStart=uxplay -p
     Restart=on-failure
 
     [Install]
