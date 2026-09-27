@@ -20,6 +20,9 @@ enable-uxplay:
     EOF
     systemctl --user daemon-reload
     systemctl --user enable --now uxplay.service
+    echo "Opening AirPlay ports on the local network (sudo required)..."
+    sudo firewall-cmd --zone=public --add-port=7000-7001/tcp --add-port=7100/tcp --add-port=6000-6001/udp --add-port=7011/udp --permanent
+    sudo firewall-cmd --reload
     echo "UxPlay enabled. Your device should now show up as an AirPlay receiver on the local network."
     echo "Check status with: systemctl --user status uxplay.service"
 
@@ -29,4 +32,7 @@ disable-uxplay:
     systemctl --user disable --now uxplay.service 2>/dev/null || true
     rm -f ~/.config/systemd/user/uxplay.service
     systemctl --user daemon-reload
+    echo "Closing AirPlay ports (sudo required)..."
+    sudo firewall-cmd --zone=public --remove-port=7000-7001/tcp --remove-port=7100/tcp --remove-port=6000-6001/udp --remove-port=7011/udp --permanent 2>/dev/null || true
+    sudo firewall-cmd --reload
     echo "UxPlay service disabled and removed."
